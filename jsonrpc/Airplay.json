@@ -1,0 +1,37 @@
+{ "$schema": "interface.schema.json",
+  "jsonrpc": "2.0",
+  "info": {
+    "title": "Airplay API",
+    "class": "AirplayJSONRPC",
+    "description": "Airplay JSON-RPC interface"
+  },
+  "methods": {
+         "startAirplayApp": {
+      "summary": "Does Airplay system command",
+      "params": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "description": "Command to send to Airplay",
+            "type": "string",
+            "example": "config"
+          }
+        }
+      },
+      "result": {
+        "type": "boolean"
+      },
+      "errors": [
+        {
+          "description": "Airplay is unavailable",
+          "$ref": "#/common/errors/unavailable"
+        },
+        {
+          "description": "Command is not set",
+          "$ref": "#/common/errors/unknownkey"
+        }        
+      ]
+    }
+  }
+ }
+ 
